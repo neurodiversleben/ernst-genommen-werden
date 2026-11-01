@@ -1,363 +1,161 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ernst genommen werden – dein Weg zur richtigen Diagnose</title>
-<meta name="description" content="Ein gratis Guide für Frauen, die ahnen, dass sie neurodivergent sein könnten. Rund um AuDHS, also ADHS und Autismus bei Frauen. Er stellt keine Diagnose, aber er hilft dir, dich ernst zu nehmen.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Epilogue:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-
-<style>
-  :root{
-    --lila:#5B16D6;
-    --limette:#C4F000;
-    --anthrazit:#2B2B33;
-    --offwhite:#FAF9F5;
-    --sand:#F1EEE7;      /* ruhiger, wärmer Hintergrundton */
-    --lila-soft:#EDE6FB; /* sehr helles Lila für ruhige Flächen */
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:'Epilogue',system-ui,sans-serif;
-    background:var(--sand);
-    color:var(--anthrazit);
-    line-height:1.7;
-    font-size:18px;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:680px;margin:0 auto;padding:0 24px}
-
-  /* ---------- HERO ---------- */
-  .hero{padding:88px 0 56px;text-align:left}
-  .eyebrow{
-    font-family:'Syne',sans-serif;
-    font-weight:700;
-    font-size:14px;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--lila);
-    margin-bottom:22px;
-  }
-  h1{
-    font-family:'Syne',sans-serif;
-    font-weight:800;
-    font-size:clamp(34px,6vw,52px);
-    line-height:1.08;
-    letter-spacing:-.01em;
-    color:var(--anthrazit);
-    margin-bottom:20px;
-  }
-  .subtitle{
-    font-size:clamp(19px,2.6vw,23px);
-    color:var(--lila);
-    font-weight:500;
-    margin-bottom:36px;
-  }
-  .lead{
-    font-size:20px;
-    margin-bottom:18px;
-    max-width:60ch;
-  }
-  .lead em{font-style:italic}
-
-  /* ---------- RUHIGE ABSCHNITTE ---------- */
-  .section{padding:14px 0}
-  .soft-card{
-    background:var(--offwhite);
-    border-radius:20px;
-    padding:34px 32px;
-    margin:34px 0;
-    border-left:5px solid var(--lila);
-  }
-  .soft-card p{margin-bottom:12px}
-  .soft-card p:last-child{margin-bottom:0}
-  .soft-card .line{
-    font-family:'Syne',sans-serif;
-    font-weight:700;
-    font-size:20px;
-    color:var(--anthrazit);
-    margin-bottom:10px;
-  }
-
-  .für{margin:30px 0}
-  .für p{
-    padding:13px 0 13px 26px;
-    border-left:3px solid var(--limette);
-    margin-bottom:14px;
-    background:linear-gradient(90deg, rgba(196,240,0,.10), transparent 70%);
-  }
-
-  .quiet{
-    text-align:center;
-    font-family:'Syne',sans-serif;
-    font-weight:700;
-    font-size:clamp(22px,3.4vw,28px);
-    line-height:1.3;
-    color:var(--lila);
-    margin:52px auto;
-    max-width:20ch;
-  }
-
-  /* ---------- FORMULAR ---------- */
-  .signup{
-    background:var(--lila);
-    color:var(--offwhite);
-    border-radius:24px;
-    padding:44px 34px;
-    margin:56px 0 40px;
-    text-align:center;
-  }
-  .signup h2{
-    font-family:'Syne',sans-serif;
-    font-weight:800;
-    font-size:clamp(24px,4vw,32px);
-    line-height:1.15;
-    margin-bottom:14px;
-    color:#fff;
-  }
-  .signup p{color:#EADFFB;margin-bottom:26px;font-size:17px}
-
-  /* MailerLite-Fallback-Formular (Styling für den eingebetteten Code) */
-  .ml-form{max-width:400px;margin:0 auto}
-  .ml-form input[type=email]{
-    width:100%;
-    padding:16px 18px;
-    border:none;
-    border-radius:12px;
-    font-family:'Epilogue',sans-serif;
-    font-size:17px;
-    margin-bottom:14px;
-    color:var(--anthrazit);
-  }
-  .ml-form button{
-    width:100%;
-    padding:16px 18px;
-    border:none;
-    border-radius:12px;
-    background:var(--limette);
-    color:var(--anthrazit);
-    font-family:'Syne',sans-serif;
-    font-weight:700;
-    font-size:18px;
-    cursor:pointer;
-    transition:transform .15s ease, filter .15s ease;
-  }
-  .ml-form button:hover{transform:translateY(-2px);filter:brightness(1.04)}
-  .signup .mini{font-size:13.5px;color:#D9C9F7;margin-top:18px;margin-bottom:0}
-
-  /* ---------- DISCLAIMER / FOOTER ---------- */
-  .disclaimer{
-    font-size:14.5px;
-    color:#6a6a72;
-    line-height:1.65;
-    border-top:1px solid #ddd8ce;
-    padding-top:26px;
-    margin-top:20px;
-  }
-  footer{padding:40px 0 60px;text-align:center}
-  footer .brand{
-    font-family:'Syne',sans-serif;
-    font-weight:700;
-    color:var(--lila);
-    font-size:15px;
-    letter-spacing:.04em;
-  }
-  footer .links{margin-top:12px;font-size:13.5px}
-  footer .links a{color:#6a6a72;text-decoration:none;margin:0 8px}
-  footer .links a:hover{color:var(--lila)}
-
-  /* ---------- CONSENT BANNER ---------- */
-  .consent{
-    position:fixed;left:16px;right:16px;bottom:16px;
-    max-width:680px;margin:0 auto;
-    background:var(--anthrazit);color:#eee;
-    border-radius:16px;padding:20px 22px;
-    display:none;z-index:9999;
-    box-shadow:0 12px 40px rgba(0,0,0,.25);
-  }
-  .consent.show{display:block}
-  .consent p{font-size:14px;line-height:1.55;margin-bottom:14px;color:#dcdce0}
-  .consent a{color:var(--limette);text-decoration:underline}
-  .consent .btns{display:flex;gap:10px;flex-wrap:wrap}
-  .consent button{
-    border:none;border-radius:10px;padding:11px 20px;
-    font-family:'Syne',sans-serif;font-weight:700;font-size:14px;cursor:pointer;
-  }
-  .c-accept{background:var(--limette);color:var(--anthrazit)}
-  .c-decline{background:transparent;color:#bbb;border:1px solid #555!important}
-
-  @media (max-width:520px){
-    body{font-size:17px}
-    .hero{padding:60px 0 40px}
-    .soft-card{padding:28px 24px}
-    .signup{padding:36px 24px}
-  }
-
-  @media (prefers-reduced-motion:reduce){
-    *{scroll-behavior:auto!important;transition:none!important}
-  }
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ernst genommen werden – kostenloser Guide | neurodiversleben</title>
+<meta name="description" content="Dein Weg zur richtigen Diagnose. Kostenloser Guide für Frauen, die ahnen, dass sie neurodivergent sein könnten.">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/gochi-hand-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/landing.css">
+<meta property="og:title" content="Ernst genommen werden – kostenloser Guide">
+<meta property="og:description" content="Dein Weg zur richtigen Diagnose. Kostenloser Guide für Frauen, die ahnen, dass sie neurodivergent sein könnten.">
+<meta property="og:type" content="website">
 </head>
 <body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
 
-<div class="wrap">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/logo.svg" width="26" height="29" alt="">neurodiversleben</a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="/#angebote">Angebote</a>
+      <a href="/#gratis">Gratis-Guides</a>
+      <a href="/#ueber">Über mich</a>
+      <a href="/kontakt/">Kontakt</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="eyebrow">Gratis Guide</div>
-    <h1>Ernst genommen werden</h1>
-    <div class="subtitle">Dein Weg zur richtigen Diagnose</div>
-    <p class="lead"><em>Da ist dieses Gefühl. Irgendwas passt nicht, irgendwas war schon immer anders. Und niemand konnte dir bisher sagen, was.</em></p>
-    <p class="lead">Dieser Guide ist für Frauen, die ahnen, dass sie neurodivergent sein könnten. Er stellt keine Diagnose, das können nur Fachleute. Aber er hilft dir zu verstehen, warum gerade du so lange übersehen wurdest, und wie du eine Stelle findest, die dich wirklich ernst nimmt.</p>
-  </header>
+<main id="inhalt">
 
-  <!-- FÜR WEN -->
-  <section class="section">
-    <div class="für">
-      <p>Für die, die schon eine Diagnose haben und ahnen, es war die falsche.</p>
-      <p>Für die, denen gesagt wurde, sie seien zu empathisch, zu erfolgreich oder einfach nur erschöpft.</p>
-      <p>Für die, deren Kind eine Diagnose bekommen hat und die seither spüren, dass die Geschichte bei ihnen selbst anfängt.</p>
-      <p>Und für die, die noch nirgends waren, weil die Angst zu groß ist, wieder nicht gehört zu werden.</p>
+<section class="wrap lp-hero">
+  <div class="lp-hero-text">
+    <span class="pill pill-limette">Gratis-Guide</span>
+    <h1 class="h1">Ernst <span class="marker">genommen werden</span></h1>
+    <p class="lp-claim">Dein Weg zur richtigen Diagnose</p>
+    <p class="lead">Da ist dieses Gefühl. Irgendwas passt nicht, irgendwas war schon immer anders. Und niemand konnte dir bisher sagen, was.</p>
+  </div>
+  <div class="lp-form-card" id="anmelden">
+    <div id="ernst-form-box">
+      <p class="lp-form-titel">Hol dir den Guide, ganz für dich</p>
+      <form class="lp-form" id="mlDiagnoseForm" action="https://assets.mailerlite.com/jsonp/2344410/forms/192045798371886366/subscribe" method="post" target="_blank">
+        <div class="ml-field-group">
+          <label for="lp-mail">E-Mail-Adresse</label>
+          <input id="lp-mail" type="email" name="fields[email]" placeholder="name@beispiel.at" required autocomplete="email">
+        </div>
+        <input type="hidden" name="ml-submit" value="1">
+        <input type="hidden" name="anticsrf" value="true">
+        <button type="submit" class="btn btn-lila">Schick mir den Guide</button>
+      </form>
+      <p class="lp-form-hinweis">Trag deine E-Mail ein und ich schick ihn dir direkt zu. Ganz ohne Druck, du kannst jederzeit wieder aussteigen. Mehr in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p>
     </div>
-  </section>
+    <div id="ernst-danke" role="status" hidden>
+      <p class="lp-form-titel">Schön, dass du da bist.</p>
+      <p class="lp-form-hinweis" style="color: var(--text-2)">Schau in dein Postfach, dort wartet dein Guide. Falls nichts ankommt, schau bitte auch im Spam nach.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- KERNBOTSCHAFT -->
-  <section class="section">
-    <div class="soft-card">
-      <p class="line">Nicht du warst zu unauffällig. Das Raster war zu eng.</p>
+<section class="wrap lp-block">
+  <p class="eyebrow">Für wen das ist</p>
+  <div class="lp-zwei">
+    <h2 class="h2">Für Frauen, die ahnen</h2>
+    <div class="lp-text">
+      <p>Dieser Guide ist für Frauen, die ahnen, dass sie neurodivergent sein könnten. Er stellt keine Diagnose, das können nur Fachleute. Aber er hilft dir zu verstehen, warum gerade du so lange übersehen wurdest, und wie du eine Stelle findest, die dich wirklich ernst nimmt.</p>
+    </div>
+  </div>
+  <ol class="lp-liste">
+    <li><span class="lp-nr">01</span><span>Für die, die schon eine Diagnose haben und ahnen, es war die falsche.</span></li>
+    <li><span class="lp-nr">02</span><span>Für die, denen gesagt wurde, sie seien zu empathisch, zu erfolgreich oder einfach nur erschöpft.</span></li>
+    <li><span class="lp-nr">03</span><span>Für die, deren Kind eine Diagnose bekommen hat und die seither spüren, dass die Geschichte bei ihnen selbst anfängt.</span></li>
+    <li><span class="lp-nr">04</span><span>Und für die, die noch nirgends waren, weil die Angst zu groß ist, wieder nicht gehört zu werden.</span></li>
+  </ol>
+</section>
+
+<section class="wrap lp-block">
+  <div class="lp-zwei">
+    <h2 class="h2">Nicht du warst zu unauffällig. Das Raster war zu eng.</h2>
+    <div class="lp-text">
       <p>Die Kriterien, nach denen gesucht wird, wurden an kleinen, auffälligen Buben entwickelt. In dieses Bild passt eine Frau, die gelernt hat zu funktionieren, sich anzupassen, zu kompensieren, einfach nicht rein. Alles, was dich hat durchrutschen lassen, war eigentlich eine Leistung. Sie hat dich nur unsichtbar gemacht.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <p class="quiet">Du suchst nicht, bis dir jemand recht gibt. Du suchst, bis dir jemand richtig zuhört.</p>
+<section class="wrap lp-block">
+  <div class="lp-zitat">
+    <blockquote>Du suchst nicht, bis dir jemand recht gibt. <span class="lp-hl">Du suchst, bis dir jemand richtig zuhört.</span></blockquote>
+  </div>
+  <a class="btn btn-lila lp-cta" href="#anmelden">Schick mir den Guide</a>
+</section>
 
-  <!-- FORMULAR -->
-  <section class="signup" id="anmelden">
-    <h2>Hol dir den Guide, ganz für dich</h2>
-    <p>Trag deine E-Mail ein und ich schick ihn dir direkt zu. Ganz ohne Druck, du kannst jederzeit wieder aussteigen.</p>
+<section class="wrap lp-block">
+  <p class="eyebrow">Das könnte dich auch interessieren</p>
+  <div class="grid">
+    <article class="card card-gratis">
+      <span class="tag">Gratis-Guide</span>
+      <h4>PDA verstehen</h4>
+      <p class="desc">Warum sich Anforderungen wie eine Bedrohung anfühlen können.</p>
+      <a class="link-pfeil" href="/pda/">Gratis holen →</a>
+    </article>
+    <article class="card card-gratis">
+      <span class="tag">Selbst-Check</span>
+      <h4>Umgebungs-Check</h4>
+      <p class="desc">Sechs Räume, ein Selbst-Check: Wo kostet dich dein Alltag unnötig Energie?</p>
+      <a class="link-pfeil" href="/umgebungs-check/">Gratis holen →</a>
+    </article>
+    <article class="card card-kauf">
+      <span class="tag">Guide</span>
+      <h4>So bin ich</h4>
+      <p class="desc">Der Kommunikations-Guide: erklären, wie du tickst, ohne dich ständig zu rechtfertigen.</p>
+      <div class="card-fuss"><span class="preis">19 €</span><a class="btn btn-dunkel btn-klein" href="/kommunikations-guide/">Mehr erfahren</a></div>
+    </article>
+  </div>
+</section>
 
-    <!--
-      ========================================================================
-      MAILERLITE-FORMULAR (Account 2344410, Formular 192045798371886366)
-      ------------------------------------------------------------------------
-      WICHTIG in MailerLite prüfen:
-        - Dieses Formular muss mit der Diagnose-Gruppe verknüpft sein
-        - Automation: Trigger "Joins Group" -> Willkommensmail mit
-          Download-Link zum PDF:
-          https://neurodiversleben.github.io/downloads/Guide-Ernst-genommen-werden.pdf
-      Das native MailerLite-Submit ist erhalten. Beim Absenden wird
-      zusätzlich das Meta-Lead-Event gefeuert, aber nur bei Consent.
-      ========================================================================
-    -->
-    <form class="ml-form" id="mlDiagnoseForm"
-          action="https://assets.mailerlite.com/jsonp/2344410/forms/192045798371886366/subscribe"
-          method="post" target="_blank"
-          onsubmit="if(window.__nlConsent===true && typeof fbq==='function'){fbq('track','Lead');}">
-      <input type="email" name="fields[email]" placeholder="deine@email.at" required aria-label="E-Mail-Adresse" autocomplete="email">
-      <input type="hidden" name="ml-submit" value="1">
-      <input type="hidden" name="anticsrf" value="true">
-      <button type="submit">Schick mir den Guide</button>
-    </form>
+<section class="wrap lp-block"><p class="lp-disclaimer">Rund um AuDHS, also ADHS und Autismus bei Frauen. Dieser Guide beruht auf persönlicher Erfahrung und allgemein verfügbarem Wissen. Er stellt keine Diagnose, ersetzt keine ärztliche oder klinisch-psychologische Abklärung und keine professionelle Behandlung. Wenn du den Verdacht auf eine Neurodivergenz oder eine andere Diagnose hast, wende dich bitte an qualifizierte Fachleute. Wenn es dir psychisch sehr schlecht geht, such dir bitte zeitnah professionelle Unterstützung.</p></section>
 
-    <p class="mini">Rund um AuDHS, also ADHS und Autismus bei Frauen. Der Guide stellt keine Diagnose und ersetzt keine ärztliche oder klinisch-psychologische Abklärung.</p>
-  </section>
+</main>
 
-  <!-- DISCLAIMER -->
-  <section class="section">
-    <p class="disclaimer">Dieser Guide beruht auf persönlicher Erfahrung und allgemein verfügbarem Wissen. Er stellt keine Diagnose, ersetzt keine ärztliche oder klinisch-psychologische Abklärung und keine professionelle Behandlung. Wenn du den Verdacht auf eine Neurodivergenz oder eine andere Diagnose hast, wende dich bitte an qualifizierte Fachleute. Wenn es dir psychisch sehr schlecht geht, such dir bitte zeitnah professionelle Unterstützung.</p>
-  </section>
-
-</div>
-
-<footer>
-  <div class="brand">neurodiversleben</div>
-  <div class="links">
-    <!-- Platzhalter: durch echte Seiten ersetzen (in Österreich Pflicht) -->
-    <a href="#datenschutz">Datenschutz</a>·<a href="#impressum">Impressum</a>·<a href="#" onclick="resetConsent();return false;">Cookie-Einstellungen</a>
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© neurodiversleben</span>
+    <nav aria-label="Footer">
+      <a href="/kontakt/">Kontakt</a>
+      <a href="https://instagram.com/neurodiversleben" rel="noopener">Instagram</a>
+      <a href="/impressum/">Impressum</a>
+      <a href="/datenschutz/">Datenschutz</a>
+      <button type="button" class="footer-btn" data-cookie-settings>Cookie-Einstellungen</button>
+    </nav>
   </div>
 </footer>
 
-<!-- CONSENT BANNER (Meta Pixel consent-gated, wie auf deinen anderen Seiten) -->
-<div class="consent" id="consentBanner">
-  <p>Ich nutze Meta Pixel, um zu verstehen, wie diese Seite gefunden wird. Es lädt nur, wenn du zustimmst. Mehr dazu in der <a href="#datenschutz">Datenschutzerklärung</a>.</p>
-  <div class="btns">
-    <button class="c-accept" onclick="acceptConsent()">Akzeptieren</button>
-    <button class="c-decline" onclick="declineConsent()">Ablehnen</button>
+<div id="nl-consent" role="dialog" aria-live="polite" aria-label="Cookie-Einwilligung">
+  <p>Ich nutze einen Marketing-Pixel (Meta), um zu sehen, ob meine Anzeigen funktionieren. Der lädt nur, wenn du zustimmst. Mehr dazu in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p>
+  <div class="nl-btns">
+    <button type="button" class="nl-accept" id="nl-accept">Akzeptieren</button>
+    <button type="button" class="nl-decline" id="nl-decline">Nur Notwendige</button>
   </div>
 </div>
-
+<script src="/assets/site.js"></script>
 <script>
-  /* ===== Consent-gated Meta Pixel (Key & ID identisch zu deinen anderen Seiten) ===== */
-  var NL_PIXEL_ID = '1850603119282068';
-  var NL_CONSENT_KEY = 'nl_pixel_consent';
-  window.__nlConsent = false;
-
-  function loadPixel(){
-    if(window.__nlPixelLoaded) return;
-    window.__nlPixelLoaded = true;
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', NL_PIXEL_ID);
-    fbq('track', 'PageView');
-    window.__nlConsent = true;
-  }
-
-  function acceptConsent(){
-    localStorage.setItem(NL_CONSENT_KEY,'granted');
-    document.getElementById('consentBanner').classList.remove('show');
-    loadPixel();
-  }
-  function declineConsent(){
-    localStorage.setItem(NL_CONSENT_KEY,'denied');
-    document.getElementById('consentBanner').classList.remove('show');
-  }
-  function resetConsent(){
-    localStorage.removeItem(NL_CONSENT_KEY);
-    document.getElementById('consentBanner').classList.add('show');
-  }
-  (function(){
-    var c = localStorage.getItem(NL_CONSENT_KEY);
-    if(c === 'granted'){ loadPixel(); }
-    else if(c !== 'denied'){ document.getElementById('consentBanner').classList.add('show'); }
-  })();
-
-  /* ===== MailerLite-Formular: absenden ohne neuen Tab, mit Inline-Bestätigung =====
-     Schickt die Anmeldung per fetch an MailerLite (no-cors), feuert das
-     Lead-Event bei Consent und zeigt danach eine warme Bestätigung. */
-  (function(){
+  (function () {
     var form = document.getElementById('mlDiagnoseForm');
-    if(!form) return;
-    form.addEventListener('submit', function(e){
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var emailInput = form.querySelector('input[type=email]');
-      if(!emailInput || !emailInput.value) return;
-
-      if(window.__nlConsent === true && typeof fbq === 'function'){
-        fbq('track','Lead');
-      }
-
-      var data = new FormData(form);
-      fetch(form.action, { method:'POST', body:data, mode:'no-cors' })
-        .catch(function(){})
-        .finally(function(){
-          var box = form.parentNode;
-          form.style.display = 'none';
-          var ok = document.createElement('div');
-          ok.className = 'ml-success';
-          ok.innerHTML = '<p style="color:#fff;font-family:Syne,sans-serif;font-weight:700;font-size:20px;margin-bottom:8px;">Schön, dass du da bist.</p>'
-            + '<p style="color:#EADFFB;font-size:16px;margin:0;">Schau in dein Postfach, dort wartet dein Guide. Falls nichts ankommt, schau bitte auch im Spam nach.</p>';
-          box.insertBefore(ok, box.querySelector('.mini'));
+      var input = form.querySelector('input[type=email]');
+      if (!input || !input.value) return;
+      if (typeof window.fbq === 'function') { fbq('track', 'Lead'); }
+      fetch(form.action, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
+        .catch(function () {})
+        .finally(function () {
+          document.getElementById('ernst-form-box').hidden = true;
+          document.getElementById('ernst-danke').hidden = false;
         });
     });
   })();
 </script>
-
 </body>
 </html>
